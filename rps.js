@@ -1,43 +1,43 @@
 const rps = ["rock", "paper", "scissors"];
-let playerscore = 0;
-let computerscore = 0;
+let playerScore = 0;
+let computerScore = 0;
 
 function computerPlay() {
     return rps[Math.floor(Math.random() * 3)]
 }
 
 function playRound(playerSelection, computerSelection) {
-    let playerchoice = playerSelection.toLowerCase();
+    let playerChoice = playerSelection.toLowerCase();
     
-    if (playerchoice == computerSelection) {
+    if (playerChoice == computerSelection) {
         return "Tie";
     }
-    else if (playerchoice == "rock") {
+    else if (playerChoice == "rock") {
         switch (computerSelection) {
             case "paper":
-                computerscore++;
+                computerScore++;
                 return "You lose! Paper beats Rock"
             case "scissors":
-                playerscore++;
+                playerScore++;
                 return "You win! Rock beats Scissors"
         }
     }
-    else if (playerchoice == "paper") {
+    else if (playerChoice == "paper") {
         switch (computerSelection) {
             case "rock":
-                playerscore++;
+                playerScore++;
                 return "You win! Paper beats Rock"
             case "scissors":
-                computerscore++;
+                computerScore++;
                 return "You lose! Scissors beats Rock"
         }
     } else {
         switch (computerSelection) {
             case "rock":
-                computerscore++;
+                computerScore++;
                 return "You lose! Rock beats Scissors"
             case "paper":
-                playerscore++;
+                playerScore++;
                 return "You win! Scissors beats Paper"
         }
     }
@@ -51,17 +51,17 @@ function game() {
             playerSelection = prompt("Rock, Paper, or Scissors?");
         }
         console.log(playRound(playerSelection, computerPlay()));
-        console.log(`Current score:\nPlayer: ${playerscore}\n Computer: ${computerscore}`);
+        console.log(`Current score:\nPlayer: ${playerScore}\n Computer: ${computerScore}`);
     }
-    if (playerscore > computerscore) {
+    if (playerScore > computerScore) {
         console.log("Player wins")
     }
-    else if (playerscore < computerscore) {
+    else if (playerScore < computerScore) {
         console.log("Computer wins")
     } else {
         console.log("Tie")
     }
-    playerscore = 0;
-    computerscore = 0;
+    playerScore = 0;
+    computerScore = 0;
     return;
 }
