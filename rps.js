@@ -7,38 +7,25 @@ function computerPlay() {
 }
 
 function playRound(playerSelection, computerSelection) {
-    let playerChoice = playerSelection.toLowerCase();
+    playerSelection = playerSelection.toLowerCase();
     
-    if (playerChoice == computerSelection) {
+    if (playerSelection == computerSelection) {
         return "Tie";
     }
 
     // Player win cases
-    else if (playerChoice == "rock" && computerSelection == "scissors" ||
-             playerChoice == "paper" && computerSelection == "rock" ||
-             playerChoice == "scissors" && computerSelection == "paper") {
-                return `You win! ${playerChoice} beats ${computerSelection}.`
-                return "You win! Rock beats Scissors"
+    else if (playerSelection == "rock" && computerSelection == "scissors" ||
+             playerSelection == "paper" && computerSelection == "rock" ||
+             playerSelection == "scissors" && computerSelection == "paper") {
+        
+        playerScore++;
+        return `You win! ${playerSelection} beats ${computerSelection}.`
         }
-    }
-    else if (playerChoice == "paper") {
-        switch (computerSelection) {
-            case "rock":
-                playerScore++;
-                return "You win! Paper beats Rock"
-            case "scissors":
-                computerScore++;
-                return "You lose! Scissors beats Rock"
-        }
-    } else {
-        switch (computerSelection) {
-            case "rock":
-                computerScore++;
-                return "You lose! Rock beats Scissors"
-            case "paper":
-                playerScore++;
-                return "You win! Scissors beats Paper"
-        }
+    
+    // Computer win cases
+    else {
+        computerScore++;
+        return `You lose! ${computerSelection} beats ${playerSelection}`
     }
 }
 
