@@ -33,5 +33,11 @@ function playRound(playerSelection, computerSelection) {
                 return "You win! Scissors beats Paper"
         }
     }
-    
+}
+
+function game() {
+    for (let i = 0; i < 5; i++) {
+        let playerSelection = prompt("Rock, Paper, or Scissors?");
+        console.log(playRound(playerSelection, computerPlay()));
+    }
 }
