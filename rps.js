@@ -12,13 +12,12 @@ function playRound(playerSelection, computerSelection) {
     if (playerChoice == computerSelection) {
         return "Tie";
     }
-    else if (playerChoice == "rock") {
-        switch (computerSelection) {
-            case "paper":
-                computerScore++;
-                return "You lose! Paper beats Rock"
-            case "scissors":
-                playerScore++;
+
+    // Player win cases
+    else if (playerChoice == "rock" && computerSelection == "scissors" ||
+             playerChoice == "paper" && computerSelection == "rock" ||
+             playerChoice == "scissors" && computerSelection == "paper") {
+                return `You win! ${playerChoice} beats ${computerSelection}.`
                 return "You win! Rock beats Scissors"
         }
     }
