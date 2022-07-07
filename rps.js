@@ -8,15 +8,11 @@ function computerPlay() {
 
 const buttons = document.querySelectorAll(".btn");
 
-function newGame() {
-    buttons.forEach((button) => {
+buttons.forEach((button) => {
     button.addEventListener("click", () => {
         playRound(button.innerHTML, computerPlay());
-        });
     });
-};
-
-newGame();
+});
 
 const results = document.querySelector("#results");
 const score = document.querySelector("#score");
