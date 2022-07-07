@@ -16,6 +16,7 @@ buttons.forEach((button) => {
 });
 
 const results = document.querySelector("#results");
+const score = document.querySelector("#score");
 
 function playRound(playerSelection, computerSelection) {
     if (playerSelection == computerSelection) {
@@ -36,6 +37,9 @@ function playRound(playerSelection, computerSelection) {
         computerScore++;
         results.textContent = `You lose! ${playerSelection} loses to ${computerSelection}.`
     }
+
+    // Display current score
+    score.textContent = `You: ${playerScore}\nComputer: ${computerScore}`
 };
 
 function game() {
