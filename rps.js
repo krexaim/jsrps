@@ -2,21 +2,24 @@ const rps = ["Rock", "Paper", "Scissors"];
 let playerScore = 0;
 let computerScore = 0;
 
+
 function computerPlay() {
     return rps[Math.floor(Math.random() * 3)]
-}
+};
 
-const buttons = document.querySelectorAll("button");
-buttons.forEach((btn) => {
-    btn.addEventListener("click", () => {
-        playRound(btn.innerHTML, computerPlay);
+const buttons = document.querySelectorAll(".btn");
+buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+        playRound(button.innerHTML, computerPlay());
     });
     
 });
 
+const results = document.querySelector("#results");
+
 function playRound(playerSelection, computerSelection) {
     if (playerSelection == computerSelection) {
-        return "Tie";
+        results.textContent = `Draw!`
     }
 
     // Player win cases
@@ -25,15 +28,15 @@ function playRound(playerSelection, computerSelection) {
              playerSelection == "Scissors" && computerSelection == "Paper") {
         
         playerScore++;
-        return `You win! ${playerSelection} beats ${computerSelection}.`
-        }
+        results.textContent = `You win! ${playerSelection} beats ${computerSelection}.`
+    }
     
     // Computer win cases
     else {
         computerScore++;
-        return `You lose! ${computerSelection} beats ${playerSelection}`
+        results.textContent = `You lose! ${playerSelection} loses to ${computerSelection}.`
     }
-}
+};
 
 function game() {
     for (let i = 0; i < 5; i++) {
@@ -56,4 +59,4 @@ function game() {
     playerScore = 0;
     computerScore = 0;
     return;
-}
+};
