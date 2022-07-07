@@ -1,32 +1,28 @@
-const rps = ["rock", "paper", "scissors"];
+const rps = ["Rock", "Paper", "Scissors"];
 let playerScore = 0;
 let computerScore = 0;
-
-// const btn = document.querySelector("btn");
-// btn.addEventListener("click", () => {
-//     console.log("Abc")
-// });
-const buttons = document.querySelectorAll("button");
-buttons.forEach((btn) => {
-    btn.addEventListener("click", () => {
-        console.log(btn.innerHTML);
-    });
-});
 
 function computerPlay() {
     return rps[Math.floor(Math.random() * 3)]
 }
 
-function playRound(playerSelection, computerSelection) {
+const buttons = document.querySelectorAll("button");
+buttons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+        playRound(btn.innerHTML, computerPlay);
+    });
     
+});
+
+function playRound(playerSelection, computerSelection) {
     if (playerSelection == computerSelection) {
         return "Tie";
     }
 
     // Player win cases
-    else if (playerSelection == "rock" && computerSelection == "scissors" ||
-             playerSelection == "paper" && computerSelection == "rock" ||
-             playerSelection == "scissors" && computerSelection == "paper") {
+    else if (playerSelection == "Rock" && computerSelection == "Scissors" ||
+             playerSelection == "Paper" && computerSelection == "Rock" ||
+             playerSelection == "Scissors" && computerSelection == "Paper") {
         
         playerScore++;
         return `You win! ${playerSelection} beats ${computerSelection}.`
