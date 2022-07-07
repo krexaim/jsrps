@@ -2,12 +2,22 @@ const rps = ["rock", "paper", "scissors"];
 let playerScore = 0;
 let computerScore = 0;
 
+// const btn = document.querySelector("btn");
+// btn.addEventListener("click", () => {
+//     console.log("Abc")
+// });
+const buttons = document.querySelectorAll("button");
+buttons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+        console.log(btn.innerHTML);
+    });
+});
+
 function computerPlay() {
     return rps[Math.floor(Math.random() * 3)]
 }
 
 function playRound(playerSelection, computerSelection) {
-    playerSelection = playerSelection.toLowerCase();
     
     if (playerSelection == computerSelection) {
         return "Tie";
