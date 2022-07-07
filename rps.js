@@ -2,7 +2,6 @@ const rps = ["Rock", "Paper", "Scissors"];
 let playerScore = 0;
 let computerScore = 0;
 
-
 function computerPlay() {
     return rps[Math.floor(Math.random() * 3)]
 };
@@ -12,7 +11,6 @@ buttons.forEach((button) => {
     button.addEventListener("click", () => {
         playRound(button.innerHTML, computerPlay());
     });
-    
 });
 
 const results = document.querySelector("#results");
@@ -39,28 +37,18 @@ function playRound(playerSelection, computerSelection) {
     }
 
     // Display current score
-    score.textContent = `You: ${playerScore}\nComputer: ${computerScore}`
+    score.textContent = `You: ${playerScore} Computer: ${computerScore}`
+
+    checkWinner();
 };
 
-function game() {
-    for (let i = 0; i < 5; i++) {
-        // Don't accept input if not rock, paper or scissors
-        let playerSelection = "";
-        while (!rps.includes(playerSelection.toLowerCase())) {
-            playerSelection = prompt("Rock, Paper, or Scissors?");
-        }
-        console.log(playRound(playerSelection, computerPlay()));
-        console.log(`Current score:\nPlayer: ${playerScore}\n Computer: ${computerScore}`);
-    }
-    if (playerScore > computerScore) {
-        console.log("Player wins")
-    }
-    else if (playerScore < computerScore) {
-        console.log("Computer wins")
-    } else {
-        console.log("Tie")
-    }
-    playerScore = 0;
-    computerScore = 0;
-    return;
+const div = document.querySelector("div");
+
+function checkWinner() {
+    if (playerScore == 5 || computerScore == 5) {
+        const replay = document.createElement("button");
+        div.append(replay);
+        replay.textContent = "Play again?";
+    };
+
 };
