@@ -49,6 +49,12 @@ function checkWinner() {
         const replay = document.createElement("button");
         div.append(replay);
         replay.textContent = "Play again?";
+        replay.addEventListener("click", () => {
+            playerScore = 0;
+            computerScore = 0;
+            score.textContent = `You: ${playerScore} Computer: ${computerScore}`;
+            div.removeChild(replay);
+        })
     };
 
 };
