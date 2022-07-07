@@ -7,11 +7,15 @@ function computerPlay() {
 };
 
 const buttons = document.querySelectorAll(".btn");
-buttons.forEach((button) => {
+function newGame() {
+    buttons.forEach((button) => {
     button.addEventListener("click", () => {
         playRound(button.innerHTML, computerPlay());
+        });
     });
-});
+};
+
+newGame();
 
 const results = document.querySelector("#results");
 const score = document.querySelector("#score");
@@ -46,7 +50,7 @@ const div = document.querySelector("div");
 
 function checkWinner() {
     if (playerScore == 5 || computerScore == 5) {
-        buttons.forEach((button) => button.remove())
+        buttons.forEach((button) => button.removeEventListener("click"));
         if (playerScore == 5) {
             results.textContent = "You win!";
         }
@@ -65,6 +69,7 @@ function replay() {
         playerScore = 0;
         computerScore = 0;
         score.textContent = `You: ${playerScore} Computer: ${computerScore}`;
+        newGame();
         div.removeChild(replay);
     });
 };
