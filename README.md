@@ -1,7 +1,7 @@
 # Rock Paper Scissors
 
 The Odin Project's Rock Paper Scissors game for learning Javascript.
-Reference[https://www.theodinproject.com/lessons/foundations-revisiting-rock-paper-scissors] 
+[Reference](https://www.theodinproject.com/lessons/foundations-revisiting-rock-paper-scissors)
 
 First to 5 wins against the computer.
 
